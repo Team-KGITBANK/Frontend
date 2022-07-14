@@ -1,0 +1,6 @@
+@import "./fonts.css";
+@import "./style.css";
+
+:root{
+    --main-color: #9c88ff;
+}
