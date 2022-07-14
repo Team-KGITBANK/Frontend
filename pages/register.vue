@@ -63,7 +63,8 @@
                 </div>
             </div>
             <div class="register_submit_wrapper">
-                <button class="register_submit">Submit</button>
+                <button class="register_submit" v-on:click="register">Submit</button>
+                <p class="register_warn_message">{{ warn_message }}</p>
             </div>
         </div>
     </div>
@@ -71,6 +72,8 @@
 </template>
 
 <script>
+const { authNew } = require('../api.js')
+
 export default {
     name: "RegisterPage",
     data() {
@@ -82,13 +85,26 @@ export default {
             last_name: "",
             email: "",
             phone_number: "",
+            warn_message: ""
         }
     },
     methods: {
-        register() {
-            if ( !this.id ) { alert("아이디를 입력해주세요.") }
-            else if ( !this.pw  || !this.pw_check ) { alert("비밀번호를 입력해주세요.") }
-            else if ( this.pw === this.pw_check ) { alert("비밀번호가 일치하지 않습니다.") }
+        async register() {
+            if ( !this.id || !this.pw || !this.pw_check || !this.first_name || !this.last_name || !this.email ) { this.warn_message = "필수 항목을 입력해주세요." }
+            else if ( this.pw !== this.pw_check ) { this.warn_message = "비밀번호가 일치하지 않습니다." }
+            else {
+                authNew({
+                    id: this.id,
+                    password: this.pw,
+                    firstName: this.first_name,
+                    lastName: this.last_name,
+                    contactPhone: this.phone_numbe
+                }).then(()=>{
+                    this.$router.push("/login")
+                }).catch(()=>{
+                    this.warn_message = "이미 존재하는 아이디입니다."
+                })
+            }
         }
     }
 }
