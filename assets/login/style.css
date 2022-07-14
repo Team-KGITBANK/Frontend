@@ -137,9 +137,16 @@
     font-weight: bold;
     border-radius: 10px;
     height: 50px;
+    cursor: pointer;
 }
 .register_submit_wrapper{
     width: 100%;
     padding: 0 141px;
     box-sizing: border-box;
+}
+.register_warn_message {
+    color: #ff4d4f;
+    text-align: center;
+    margin-top: 3px;
+    font-size: 13px;
 }
