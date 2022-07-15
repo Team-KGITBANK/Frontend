@@ -47,8 +47,8 @@ export default {
                         this.warn_message = "아이디 또는 비밀번호가 올바르지 않습니다." 
                         return
                     }
+                    localStorage.setItem("id", this.id)
                     if (this.remember) {
-                        localStorage.setItem("id", this.id)
                         localStorage.setItem("pw", this.pw)
                     }
                     getAuthToken(this.id).then(() => {
