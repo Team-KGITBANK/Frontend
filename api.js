@@ -26,7 +26,7 @@ export async function getAuthToken(id) {
     })
 }
 
-export async function getList() {
-    const trashList = await getAPI.get(`/auth/list`).then((res) => res.data).catch((e) => console.log(e))
+export async function getList(id) {
+    const trashList = await getAPI.get(`/auth/list?id=${id}`).then((res) => res.data).catch((e) => console.log(e))
     return trashList
 }
