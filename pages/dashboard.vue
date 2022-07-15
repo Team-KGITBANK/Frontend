@@ -50,7 +50,7 @@
                                 <div v-for="(i,k) in tmp[tmp_2].length" :key="k" class="index_company_infor">
                                     <div class="index_company_infor_more">
                                         <div class="index_company_infor_more_inline">                                
-                                            <p class="index_company_infor_text">(주)마스터환경</p>
+                                            <p class="index_company_infor_text">i.name</p>
                                             <div class="index_company_infor_svg">
                                                 <img v-for="(a, b) in i.score" :key="b" src="@/images/yellow_star.svg" alt="">
                                                 <img v-for="(a, b) in (5-i.score)" :key="b" src="@/images/empty_star.svg" alt="">
@@ -64,11 +64,11 @@
                                                 <img src="@/images/empty_trash.svg" >
                                                 <img src="@/images/empty_trash.svg" >
                                             </div>
-                                            <p class="index_company_infor_description">(최소 물량: {{i.minimumWasteAmountInKg}}kg / 최대 물량: {{i.maximumWasteAmountInKg }}kg)</p>
+                                            <p class="index_company_infor_description">(최소 물량: {{i.minimumInKg}}kg / 최대 물량: {{i.maximumInKg }}kg)</p>
                                         </div>
                                     </div>
                                     <div class="index_company_infor_price_wrapper">
-                                        <p class="index_company_infor_description index_company_infor_price">가격: {{ i. }}원 / 100kg</p>
+                                        <p class="index_company_infor_description index_company_infor_price">가격: {{ i.small }}원 / 100kg</p>
                                     </div>
                                 </div>
 
