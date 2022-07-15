@@ -122,7 +122,7 @@ export default {
                     return
                 }
             }
-            isDisposer = isDisposer ? 1 : 0 ;
+            this.isDisposer = this.isDisposer ? 1 : 0 ;
             if ( !this.id || !this.pw || !this.pw_check || !this.first_name || !this.last_name || !this.email ) { this.warn_message = "필수 항목을 입력해주세요." }
             else if ( this.pw !== this.pw_check ) { this.warn_message = "비밀번호가 일치하지 않습니다." }
             else {
