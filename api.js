@@ -10,7 +10,7 @@ export async function apiRegister(data){
 }
 
 export async function apiLogin(data){ 
-    await getAPI.post(`/auth/signin`, data).then((res) => res.data).catch((e) => console.log(e))
+    await getAPI.post(`/auth/lgoin`, data).then((res) => res.data).catch((e) => console.log(e))
 }
 
 export async function apiLogout() {
@@ -18,9 +18,15 @@ export async function apiLogout() {
     await getAPI.delete(`/auth/logout`).then((res) => res.data).catch((e) => console.log(e))
 }
 
-export async function getAuthToken() {
+export async function getAuthToken(id) {
     await getAPI.get(`/auth/signin`).then((res) => {
         getAPI.defaults.headers.common['Authorization'] = res.data.authToken
+        getAPI.defaults.headers.common['id']=id
         return res.data
     })
+}
+
+export async function getList() {
+    const trashList = await getAPI.get(`/auth/list`).then((res) => res.data).catch((e) => console.log(e))
+    return trashList
 }
