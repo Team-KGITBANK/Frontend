@@ -26,6 +26,15 @@
                     <img src="@/images/list.svg" alt="">
                     <p class="index_icon_subtitle">Status</p>
                 </NuxtLink>
+
+                <!-- 환경 설정 버튼 -->
+                <Nuxt-link to="/settings" class="index_icon"
+                :class="{'index_selected': this.icon_selected === 4}"
+                v-on:click.native="icon_selected = 4">
+                    <img src="@/images/setting.svg" alt="">
+                    <p class="index_icon_subtitle">Settings</p>
+                </Nuxt-link>
+
             </div>
 
             <Nuxt/>
