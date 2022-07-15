@@ -1,0 +1,204 @@
+.company {
+    width: 100%;
+    background-color: #ebebeb;
+    height: 100vh;
+}
+.company_wrapper{
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 80%;
+    max-width: 1200px;
+    height: 850px;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+
+    box-sizing: border-box;
+    padding: 70px 40px;
+}
+.company_title {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+}
+.company_title img {
+    width: 140px;
+    height: 140px;
+}
+.company_subtitle h1 {
+    font-weight: 600;
+    font-size: 32px;
+}
+.company_subtitle p {
+    font-weight: 600;
+    font-size: 17px;
+}
+.company_infor {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+.company_comment {
+    width: 530px;
+    position: relative;
+    background-color: #f2f2f2;
+    padding: 25px 35px;
+    border-radius: 15px;
+}
+.company_comment p {
+    font-weight: 600;
+    font-size: 18px;
+}
+.company_comment img {
+    position: absolute;
+    top: 15px;
+    left: -25px;
+    width: 45px;
+    height: 45px;
+}
+.company_infor_wrapper {
+    display: flex;
+    height: 100%;
+}
+.company_infor_box{
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    border-radius: 15px;
+
+    box-sizing: border-box;
+    padding: 30px 40px;
+}
+.company_infor_item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.company_infor_item img{
+    width: auto;
+    height:auto;
+    border-radius: 15px;
+}
+.company_infor_weight {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    margin-top: 20px;
+    background-color: white;
+    display: flex;
+    box-sizing: border-box;
+    justify-self: center;
+    align-items: center ;
+    padding: 20px;
+}   
+.company_infor_weight_items {
+    flex: 1;
+    text-align: center;
+}
+.company_infor_weight_items h1 {
+    font-size: 19px;
+}
+.company_infor_weight_items p {
+    font-size: 12px;
+}
+.company_checkbox {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 93px;
+    width: 100%;
+    border-radius: 15px;
+    background-color: #DDF5E1;
+    padding: 25px 30px;
+}
+.company_checkbox img {
+    width: 30px;
+    height: 30px;
+}
+.company_checkbox_text {
+    display: flex;
+    align-items: center; 
+    gap: 6px;
+}
+.company_right_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+.company_process_wrapper{ 
+    display: flex;
+    flex-direction: column;
+    background-color: #DBF2FC;
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 15px;
+}
+.company_input_inline {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+.company_input_inline input {
+    border-radius: 15px;
+    height: 40px;
+    outline: 0;
+    border: 1px solid #dddddd;
+}
+.company_input_wrapper{
+    padding: 25px 30px;
+    border: solid 2px #dddddd;
+    border-radius: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+.company_input_wrapper select {
+    outline: 0;
+    border: solid 1px #dddddd;
+    height: 40px;
+    width: 170px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+    border-radius: 15px;
+}
+
+.company_select_wrapper{ 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.company_access_btn{
+    margin-top: auto;
+    padding: 25px 30px;
+    background-color: #F2F2F2;
+    border-radius: 15px;
+}
+.company_submit {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 6px;
+}
+.company_submit img{
+    width: 30px;
+    height: 30px;
+}
+.company_center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}

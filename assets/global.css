@@ -4,3 +4,8 @@
 :root{
     --main-color: #9c88ff;
 }
+
+body, html{
+    height: 100%;
+    background-color: #ebebeb;
+}

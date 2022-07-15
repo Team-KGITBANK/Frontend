@@ -14,7 +14,7 @@
             <a href="/register" class="login_signin">Sign in</a>
         </div>
         <div class="login_btn_wrapper">
-            <button class="login_btn" v-on:click="login">Login</button>
+            <button class="login_btn" style="cursor: pointer;" v-on:click="login">Login</button>
             <p class="register_warn_message">{{ warn_message }}</p>
         </div>
     </div>
@@ -26,6 +26,7 @@ const { apiLogin, getAuthToken } = require('@/api.js')
 
 export default {
     name: "LoginPage",
+    layout: 'fullpage',
     data() {
         return{
             id: "",
@@ -41,17 +42,18 @@ export default {
                 apiLogin({
                     id: this.id,
                     password: this.pw,
-                }).then(()=>{
+                }).then((res)=>{
+                    if(res.status === 401 || res.status === 402){
+                        this.warn_message = "아이디 또는 비밀번호가 올바르지 않습니다." 
+                        return
+                    }
                     if (this.remember) {
                         localStorage.setItem("id", this.id)
                         localStorage.setItem("pw", this.pw)
                     }
-                    getAuthToken().then(token => {
-                        localStorage.setItem("token", token)
-                        this.$router.push("/")
+                    getAuthToken(this.id).then(() => {
+                        this.$router.push("/dashboard")
                     })
-                }).catch(()=>{
-                    this.warn_message = "아이디 또는 비밀번호가 올바르지 않습니다"
                 })
             }
         }
