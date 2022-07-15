@@ -3,6 +3,7 @@
         <div class="index_dash_wrapper">
             <div class="index_dash_right_wrapper">
                 <h1 style="font-size: 32px;">안녕하세요<br>{{ name }} 님,</h1>
+                <NuxtLink to="/dashboard_disposer" style="text-align:center;width:100%;border:0;padding: 5px 0;border-radius: 15px;cursor:pointer;background-color: #dddddd; text-decoration: none; color:black;">처리자</NuxtLink>
                 <div class="index_search_box">
                     <div class="index_search_box_title">
                         <img src="@/images/ok_human.svg" alt="">
@@ -46,6 +47,32 @@
                             <div class="index_search_bottom_right">
 
 
+                                <div v-for="(i,k) in tmp[tmp_2].length" :key="k" class="index_company_infor">
+                                    <div class="index_company_infor_more">
+                                        <div class="index_company_infor_more_inline">                                
+                                            <p class="index_company_infor_text">(주)마스터환경</p>
+                                            <div class="index_company_infor_svg">
+                                                <img v-for="(a, b) in i.score" :key="b" src="@/images/yellow_star.svg" alt="">
+                                                <img v-for="(a, b) in (5-i.score)" :key="b" src="@/images/empty_star.svg" alt="">
+                                                <img src="@/images/more.svg">
+                                            </div>
+                                        </div>
+                                        <div class="index_company_infor_more_inline">
+                                            <div class="index_company_infor_svg">
+                                                <img src="@/images/empty_trash.svg" >
+                                                <img src="@/images/empty_trash.svg" >
+                                                <img src="@/images/empty_trash.svg" >
+                                                <img src="@/images/empty_trash.svg" >
+                                            </div>
+                                            <p class="index_company_infor_description">(최소 물량: {{i.minimumWasteAmountInKg}}kg / 최대 물량: {{i.maximumWasteAmountInKg }}kg)</p>
+                                        </div>
+                                    </div>
+                                    <div class="index_company_infor_price_wrapper">
+                                        <p class="index_company_infor_description index_company_infor_price">가격: {{ i. }}원 / 100kg</p>
+                                    </div>
+                                </div>
+
+
                                 <div class="index_company_infor">
                                     <div class="index_company_infor_more">
                                         <div class="index_company_infor_more_inline">                                
@@ -84,7 +111,6 @@
             <div class="index_dash_left_wrapper">
                 <div class="index_banner_wrapper">
                     <div class="index_banner">
-                        
                     </div>
                 </div>
                 <div class="index_status_wrapper">
@@ -167,7 +193,7 @@
 </template>
 
 <script>
-// const { getList } = require('@/api.js')
+const { getList } = require('@/api.js')
 
 export default {
     name: 'dashboardPage',
@@ -183,22 +209,41 @@ export default {
                 'empty_star.svg',
                 'empty_star.svg'
             ],
-            trashList: {}
+            trashList: {},
+            tmp: {},
+            tmp_2: ""
         }
     },
     methods: {
-        changeStar(count){
-            let star_tmp = this.star.slice()
-            for(let i = 0 ; i <= count ; i++ ){
-                star_tmp[i] = 'yellow_star.svg'
-                console.log(this.star)
+        async changeMenu(index) {
+            switch(index){
+                case 1:
+                    this.tmp_2 = "one"
+                    break
+                case 2:
+                    this.tmp_2 = "two"
+                    break
+                case 3:
+                    this.tmp_2 = "three"
+                    break
+                case 4:
+                    this.tmp_2 = "four"
+                    break
+                case 5:
+                    this.tmp_2 = "five"
+                    break
             }
-            this.star = star_tmp
         }
     },
     mounted() {
-    
-        // trashList = getList()
+        this.trashList = getList(localStorage.getItem('id'))
+        tmp = {
+            one: [ this.trashList[0], this.trashList[1], this.trashList[2], this.trashList[3], this.trashList[4] ],
+            two: [ this.trashList[5], this.trashList[6], this.trashList[7], this.trashList[8], this.trashList[9] ],
+            three: [ this.trashList[10], this.trashList[11], this.trashList[12], this.trashList[13], this.trashList[14] ],
+            four: [ this.trashList[15], this.trashList[16], this.trashList[17], this.trashList[18], this.trashList[19] ],
+            five: [ this.trashList[0], this.trashList[2], this.trashList[5], this.trashList[16], this.trashList[19] ]
+        }
     }
 }
 

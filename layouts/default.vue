@@ -48,6 +48,11 @@ export default {
         return {  
             icon_selected: 1
         }
+    },
+    mounted() {
+        // if(localStorage.getItem('token') === null) {
+        //     this.$router.push('/login')
+        // }
     }
 }
 </script>

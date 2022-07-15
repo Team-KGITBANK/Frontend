@@ -30,3 +30,13 @@ export async function getList(id) {
     const trashList = await getAPI.get(`/auth/list?id=${id}`).then((res) => res.data).catch((e) => console.log(e))
     return trashList
 }
+
+export async function editAccount(data) {
+    const trashList = await getAPI.put(`/auth/edit`, data).then((res) => res.data).catch((e) => console.log(e))
+    return trashList
+}
+
+export async function getProcessor() {
+    const processor = await getAPI.get(`/processor`).then((res) => res.data).catch((e) => console.log(e))
+    return processor
+}

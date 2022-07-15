@@ -51,7 +51,8 @@ export default {
                     if (this.remember) {
                         localStorage.setItem("pw", this.pw)
                     }
-                    getAuthToken(this.id).then(() => {
+                    getAuthToken(this.id).then((token) => {
+                        localStorage.setItem("token", token.authToken)
                         this.$router.push("/dashboard")
                     })
                 })

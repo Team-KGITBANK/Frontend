@@ -27,7 +27,7 @@
                                 <p class="register_text">최소 수거 가능 쓰레기양(kg)</p>
                                 <p style="color:red;">*</p>
                             </div>
-                            <input type="text" class="register_input" v-model="minimun_waste_amount">
+                            <input type="text" class="register_input" v-model="minimun_waste_amount_in_kg">
                         </div>
                     </div>
                     <div class="register_company">
@@ -36,7 +36,7 @@
                                 <p class="register_text">최대 수거 가능 쓰레기양(kg)</p>
                                 <p style="color: red;">*</p>
                             </div>
-                            <input type="text" class="register_input" v-model="maxinum_waste_amount">
+                            <input type="text" class="register_input" v-model="maxinum_waste_amount_in_kg">
                         </div>
                     </div>
                 </div>
@@ -93,8 +93,8 @@ export default {
             business_name: '',
             business_type: '',
             company_registeration_number: '',
-            minimun_waste_amount: 0,
-            maxinum_waste_amount: 0,
+            minimun_waste_amount_in_kg: 0,
+            maxinum_waste_amount_in_kg: 0,
             small_waste_unit_price_per_ton: 0,
             medium_waste_unit_price_per_ton: 0,
             big_waste_unit_price_per_ton: 0,
@@ -104,7 +104,7 @@ export default {
     },
     methods: {
         async register() {
-            if ( !this.bussiness_name || !this.bussiness_type || !this.company_registeration_number || !this.minimun_waste_amount || !this.maxinum_waste_amount || !this.small_waste_unit_price_per_ton
+            if ( !this.bussiness_name || !this.bussiness_type || !this.company_registeration_number || !this.minimun_waste_amount_in_kg || !this.maxinum_waste_amount_in_kg || !this.small_waste_unit_price_per_ton
             || !this.medium_waste_unit_price_per_ton || !this.big_waste_unit_price_per_ton || !this.waste_delivery_types_available ) { this.warn_message = "필수 항목을 입력해주세요." }
             else {
                 authNew({
@@ -117,8 +117,8 @@ export default {
                     bussinessType: this.bussiness_type,
                     isDisposer: 1,
                     companyRegisterationNumber: this.company_registeration_number,
-                    minimunWasteAmount: this.minimun_waste_amount,
-                    maxinumWasteAmount: this.maxinum_waste_amount,
+                    minimunWasteAmountInKg: this.minimun_waste_amount_in_kg,
+                    maxinumWasteAmountInKg: this.maxinum_waste_amount_in_kg,
                     smallWasteUnitPricePerTon: this.small_waste_unit_price_per_ton,
                     mediumWasteUnitPricePerTon: this.medium_waste_unit_price_per_ton,
                     bigWasteUnitPricePerTon: this.big_waste_unit_price_per_ton,

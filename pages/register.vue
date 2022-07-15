@@ -34,7 +34,7 @@
                         <div class="register_input_wrapper">
                             <div class="register_input_text_wrapper">
                                 <p class="register_text">Company</p>
-                                <p style="color: red; opacity: 0;" :class="{'register_required': isDisposer === true}">*</p>
+                                <p style="color: red; opacity: 0;" :class="{'register_required': this.isDisposer === true}">*</p>
                             </div>
                             <input type="text" class="register_input" v-model="company">
                         </div>
@@ -51,7 +51,7 @@
                     <div class="register_input_wrapper">
                         <div class="register_input_text_wrapper">
                             <p class="register_text">Phone number</p>
-                            <p style="color:red; opacity: 0;" :class="{'register_required': isDisposer === true }">*</p>
+                            <p style="color:red; opacity: 0;" :class="{'register_required': this.isDisposer === true }">*</p>
                         </div>
                         <input type="text" class="register_input" v-model="phone_number">
                     </div>
@@ -108,7 +108,7 @@ export default {
     },
     methods: {
         async register() {
-            if (isDisposer) {
+            if (this.isDisposer) {
                 if (!company || !phone_number) {
                     this.warn_message = "필수 항목을 입력해주세요."
                 } else {
