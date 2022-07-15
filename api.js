@@ -6,20 +6,20 @@ const getAPI = axios.create({
 })
 
 export async function apiRegister(data){
-    await getAPI.post(`/auth/new`, data).then((res) => res.data).catch((e) => console.log(e))
+    await getAPI.post(`http://ye0ngjae.com/auth/new`, data).then((res) => res.data).catch((e) => console.log(e))
 }
 
 export async function apiLogin(data){ 
-    await getAPI.post(`/auth/lgoin`, data).then((res) => res.data).catch((e) => console.log(e))
+    await getAPI.post(`http://ye0ngjae.com/auth/lgoin`, data).then((res) => res.data).catch((e) => console.log(e))
 }
 
 export async function apiLogout() {
     getAPI.defaults.headers.common['Authorization'] = null
-    await getAPI.delete(`/auth/logout`).then((res) => res.data).catch((e) => console.log(e))
+    await getAPI.delete(`http://ye0ngjae.com/auth/logout`).then((res) => res.data).catch((e) => console.log(e))
 }
 
 export async function getAuthToken(id) {
-    await getAPI.get(`/auth/signin`).then((res) => {
+    await getAPI.get(`http://ye0ngjae.com/auth/signin`).then((res) => {
         getAPI.defaults.headers.common['Authorization'] = res.data.authToken
         getAPI.defaults.headers.common['id']=id
         return res.data
@@ -27,16 +27,16 @@ export async function getAuthToken(id) {
 }
 
 export async function getList(id) {
-    const trashList = await getAPI.get(`/auth/list?id=${id}`).then((res) => res.data).catch((e) => console.log(e))
+    const trashList = await getAPI.get(`http://ye0ngjae.com/auth/list?id=${id}`).then((res) => res.data).catch((e) => console.log(e))
     return trashList
 }
 
 export async function editAccount(data) {
-    const trashList = await getAPI.put(`/auth/edit`, data).then((res) => res.data).catch((e) => console.log(e))
+    const trashList = await getAPI.put(`http://ye0ngjae.com/auth/edit`, data).then((res) => res.data).catch((e) => console.log(e))
     return trashList
 }
 
 export async function getProcessor() {
-    const processor = await getAPI.get(`/processor`).then((res) => res.data).catch((e) => console.log(e))
+    const processor = await getAPI.get(`http://ye0ngjae.com/processor`).then((res) => res.data).catch((e) => console.log(e))
     return processor
 }
