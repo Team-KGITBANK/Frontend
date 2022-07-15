@@ -115,6 +115,7 @@ export default {
                     contactPhone: localStorage.getItem("phone_number"),
                     bussinessName: localStorage.getItem("company"),
                     bussinessType: this.bussiness_type,
+                    isDisposer: 1,
                     companyRegisterationNumber: this.company_registeration_number,
                     minimunWasteAmount: this.minimun_waste_amount,
                     maxinumWasteAmount: this.maxinum_waste_amount,
